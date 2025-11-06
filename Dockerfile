@@ -1,4 +1,4 @@
-FROM node
+FROM timbru31/node-chrome:22
 
 WORKDIR /app
 
