@@ -1,0 +1,22 @@
+{
+  "name": "gemini-whatsapp",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarsislimadev/gemini-whatsapp.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tarsislimadev/gemini-whatsapp/issues"
+  },
+  "homepage": "https://github.com/tarsislimadev/gemini-whatsapp#readme",
+  "dependencies": {
+    "@google/genai": "^1.29.0",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.34.1"
+  }
+}
