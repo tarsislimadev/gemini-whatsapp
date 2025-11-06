@@ -1,0 +1,9 @@
+services:
+
+  app:
+    image: 'tmvdl/gemini-whatsapp'
+    build: '.'
+    environment:
+      - GEMINI_API_KEY=
+    volumes:
+      - '.:/app'
