@@ -10,7 +10,11 @@ const model = 'gemini-2.5-flash'
 
 const clients = {}
 
-const wa = new Client()
+const wa = new Client({
+  puppeteer: {
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  }
+});
 
 wa.on('qr', qr => qrcode.generate(qr, { small: true }))
 
@@ -20,7 +24,7 @@ wa.on('ready', () => {
 })
 
 wa.on('message_create', async (msg) => {
-  if (!msg.text.startsWith('!gemini')) return
+  if (!msg.body.startsWith('!gemini')) return
 
   const client = await msg.getChat()
 
@@ -28,7 +32,7 @@ wa.on('message_create', async (msg) => {
     clients[client.id] = await ai.chats.create({ model })
   }
 
-  const message = msg.text.replace('!gemini ', '')
+  const message = msg.body.replace('!gemini ', '')
 
   const response = await clients[client.id].sendMessage({ message })
   msg.reply(response.text)
