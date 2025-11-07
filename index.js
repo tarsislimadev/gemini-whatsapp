@@ -16,14 +16,19 @@ const wa = new Client({
   }
 });
 
-wa.on('qr', qr => qrcode.generate(qr, { small: true }))
+wa.on('qr', qr => {
+  console.log('[wa] qr', { qr })
+  qrcode.generate(qr, { small: true })
+})
 
 wa.on('ready', () => {
-  console.clear()
+  console.log('[wa] ready', {})
   console.log('WhatsApp client is ready')
 })
 
 wa.on('message_create', async (msg) => {
+  console.log('[wa] message_create', { msg })
+
   if (!msg.body.startsWith('!gemini')) return
 
   const client = await msg.getChat()
@@ -32,10 +37,17 @@ wa.on('message_create', async (msg) => {
     clients[client.id] = await ai.chats.create({ model })
   }
 
-  const message = msg.body.replace('!gemini ', '')
+  const question = msg.body.replace('!gemini ', '')
+  const response = await clients[client.id].sendMessage({ message: question })
+  const answer = response.text
+  msg.reply(answer)
+  console.log({ question, answer })
+})
 
-  const response = await clients[client.id].sendMessage({ message })
-  msg.reply(response.text)
+wa.on('call', (call) => {
+  call.on('message', (message) => console.log({ message }))
+  call.on('spawn', (spawn) => console.log({ spawn }))
+  call.on('error', (err) => console.error(err))
 })
 
 wa.initialize()
