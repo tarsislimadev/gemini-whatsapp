@@ -2,9 +2,9 @@ const { GoogleGenAI } = require('@google/genai')
 const { Client } = require('whatsapp-web.js')
 const qrcode = require('qrcode-terminal')
 
-const apiKey = process.env.GEMINI_API_KEY
+const { GEMINI_API_KEY } = process.env
 
-const ai = new GoogleGenAI({ apiKey })
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY })
 
 const model = 'gemini-2.5-flash'
 
@@ -28,7 +28,6 @@ wa.on('ready', () => {
 
 wa.on('message_create', async (msg) => {
   console.log('[wa] message_create', { msg })
-
   if (!msg.body.startsWith('!gemini')) return
 
   const client = await msg.getChat()
@@ -45,9 +44,10 @@ wa.on('message_create', async (msg) => {
 })
 
 wa.on('call', (call) => {
-  call.on('message', (message) => console.log({ message }))
-  call.on('spawn', (spawn) => console.log({ spawn }))
-  call.on('error', (err) => console.error(err))
+  console.log('[wa] call', call)
+  call.on('message', (message) => console.log('[call] message', message))
+  call.on('spawn', (spawn) => console.log('[call] spawn', spawn))
+  call.on('error', (err) => console.error('[call] error', err))
 })
 
 wa.initialize()
