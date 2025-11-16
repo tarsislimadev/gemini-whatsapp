@@ -24,6 +24,10 @@ docker logs genwa --follow
 
 ## how to deploy on aws
 
+[![Deploy to AWS](https://d3teyb21fsmzsd.cloudfront.net/assets/images/deploy-to-aws.svg)](https://console.aws.amazon.com/ecs/home#/clusters)
+
+To deploy, navigate to the AWS ECS console, create a new task definition, and use the Docker image `tmvdl/gemini-whatsapp`. Remember to set the `GEMINI_API_KEY` environment variable.
+
 Create a ECR repository.
 
 Deploy an ECS instance with `tmvdl/gemini-whatsapp`.
