@@ -8,10 +8,6 @@
     "GEMINI_API_KEY": {
       "description": "Your API Key for Gemini service",
       "required": true
-    },
-    "PORT": {
-      "description": "The Express.js server port",
-      "value": "80"
     }
   }
 }
