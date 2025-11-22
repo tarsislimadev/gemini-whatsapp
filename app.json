@@ -1,0 +1,13 @@
+{
+  "name": "gemini-whatsapp",
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "GEMINI_API_KEY": {
+      "description": "Your API Key for Gemini service",
+      "required": true
+    }
+  }
+}
