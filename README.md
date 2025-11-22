@@ -24,13 +24,13 @@ docker logs genwa --follow
 
 ## how to deploy to Google Cloud
 
-<a href="https://deploy.cloud.run">
-  <img src="https://deploy.cloud.run/button.svg" alt="Run on Google Cloud" height="45">
-</a>
+You may deploy this project, in a click, with button below.
+
+[Run on Google Cloud](https://deploy.cloud.run/?git_url=https://github.com/tarsislimadev/gemini-whatsapp)
 
 ## how to deploy to AWS
 
-[![Deploy to AWS](https://d3teyb21fsmzsd.cloudfront.net/assets/images/deploy-to-aws.svg)](https://console.aws.amazon.com/ecs/home#/clusters)
+[Deploy to AWS](https://console.aws.amazon.com/ecs/home#/clusters)
 
 To deploy, navigate to the AWS ECS console, create a new task definition, and use the Docker image `tmvdl/gemini-whatsapp`. Remember to set the `GEMINI_API_KEY` environment variable.
 
