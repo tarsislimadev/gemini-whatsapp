@@ -22,7 +22,13 @@ Scan QRCode with your WhatsApp App.
 docker logs genwa --follow
 ```
 
-## how to deploy on aws
+## how to deploy to Google Cloud
+
+<a href="https://deploy.cloud.run">
+  <img src="https://deploy.cloud.run/button.svg" alt="Run on Google Cloud" height="45">
+</a>
+
+## how to deploy to AWS
 
 [![Deploy to AWS](https://d3teyb21fsmzsd.cloudfront.net/assets/images/deploy-to-aws.svg)](https://console.aws.amazon.com/ecs/home#/clusters)
 
